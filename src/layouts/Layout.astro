@@ -1,0 +1,105 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title = "ESTJURI — Estudio Jurídico",
+  description = "Estudio jurídico comprometido con la excelencia, la transparencia y la defensa efectiva de tus derechos. Asesoramiento legal de calidad en Buenos Aires.",
+  ogImage = "/og-default.png",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json" set:html={`{
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": "ESTJURI",
+      "description": "${description}",
+      "url": "${Astro.url}",
+      "telephone": "+541112345678",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Ejemplo 1234",
+        "addressLocality": "Ciudad Autónoma de Buenos Aires",
+        "addressCountry": "AR"
+      }
+    }`}>
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body class="font-body antialiased">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<script>
+  // Mobile menu toggle
+  const toggle = document.getElementById("mobile-toggle");
+  const menu = document.getElementById("mobile-menu");
+  const spans = toggle?.querySelectorAll("span");
+
+  toggle?.addEventListener("click", () => {
+    const isOpen = menu?.classList.toggle("hidden");
+    toggle.setAttribute("aria-expanded", String(!isOpen));
+    spans?.[0]?.classList.toggle("rotate-45");
+    spans?.[0]?.classList.toggle("translate-y-[7px]");
+    spans?.[1]?.classList.toggle("opacity-0");
+    spans?.[2]?.classList.toggle("-rotate-45");
+    spans?.[2]?.classList.toggle("-translate-y-[7px]");
+  });
+
+  // Close mobile menu on link click
+  menu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      menu.classList.add("hidden");
+      toggle?.setAttribute("aria-expanded", "false");
+      spans?.[0]?.classList.remove("rotate-45", "translate-y-[7px]");
+      spans?.[1]?.classList.remove("opacity-0");
+      spans?.[2]?.classList.remove("-rotate-45", "-translate-y-[7px]");
+    });
+  });
+
+  // Header shadow on scroll
+  const header = document.getElementById("header");
+  window.addEventListener("scroll", () => {
+    header?.classList.toggle("shadow-sm", window.scrollY > 10);
+  });
+</script>

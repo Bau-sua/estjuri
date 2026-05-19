@@ -1,0 +1,80 @@
+---
+const equipo = [
+  {
+    nombre: "Dr. Juan Estévez",
+    cargo: "Socio fundador",
+    especialidad: "Derecho de Familia y Sucesiones",
+    matricula: "Tomo X FOLIO 123 CADJM",
+    foto: null,
+    iniciales: "JE",
+  },
+  {
+    nombre: "Dra. María Juri",
+    cargo: "Socia",
+    especialidad: "Derecho Laboral",
+    matricula: "Tomo XI FOLIO 456 CADJM",
+    foto: null,
+    iniciales: "MJ",
+  },
+  {
+    nombre: "Dr. Carlos Peña",
+    cargo: "Asociado Senior",
+    especialidad: "Derecho Comercial y Corporativo",
+    matricula: "Tomo XII FOLIO 789 CADJM",
+    foto: null,
+    iniciales: "CP",
+  },
+  {
+    nombre: "Dra. Lucía Morales",
+    cargo: "Asociada",
+    especialidad: "Derecho de Familia",
+    matricula: "Tomo XIII FOLIO 321 CADJM",
+    foto: null,
+    iniciales: "LM",
+  },
+];
+---
+
+<section id="equipo" class="section-padding bg-white">
+  <div class="container-main">
+    <div class="max-w-2xl">
+      <div class="accent-line"></div>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-foreground tracking-tight text-balance">
+        El equipo que va a defender tus intereses
+      </h2>
+      <p class="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
+        Profesionales comprometidos con la excelencia jurídica y la atención
+        personalizada. Conocé a las personas que van a estar a tu lado.
+      </p>
+    </div>
+
+    <div class="mt-12 md:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      {
+        equipo.map((miembro) => (
+          <div class="group text-center">
+            <!-- Avatar placeholder -->
+            <div class="w-28 h-28 mx-auto rounded-full bg-muted flex items-center justify-center border-2 border-border group-hover:border-primary/30 transition-colors duration-300">
+              {miembro.foto ? (
+                <img
+                  src={miembro.foto}
+                  alt={miembro.nombre}
+                  class="w-full h-full rounded-full object-cover"
+                />
+              ) : (
+                <span class="font-heading text-2xl font-bold text-primary/30 group-hover:text-primary/50 transition-colors">
+                  {miembro.iniciales}
+                </span>
+              )}
+            </div>
+            <h3 class="mt-4 text-lg font-heading font-semibold text-foreground">
+              {miembro.nombre}
+            </h3>
+            <p class="mt-1 text-sm font-medium text-primary">{miembro.cargo}</p>
+            <p class="mt-1 text-xs text-muted-foreground">{miembro.especialidad}</p>
+            <p class="mt-2 text-xs text-muted-foreground/60 font-mono">{miembro.matricula}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,69 @@
+---
+const servicios = [
+  {
+    titulo: "Derecho de Familia",
+    descripcion:
+      "Divorcios, régimen de visitas, alimentos, filiaciones y violencia familiar. Te acompañamos con sensibilidad y firmeza en cada etapa.",
+    icono: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
+  },
+  {
+    titulo: "Derecho Laboral",
+    descripcion:
+      "Despidos, accidentes de trabajo, enfermedades profesionales, acoso laboral. Defendemos tus derechos con estrategia y determinación.",
+    icono: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
+  },
+  {
+    titulo: "Sucesiones",
+    descripcion:
+      "Procesos sucesorios testamentarios y ab intestato. Gestionamos cada etapa con transparencia para que el proceso sea claro y eficiente.",
+    icono: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
+  },
+  {
+    titulo: "Derecho Comercial",
+    descripcion:
+      "Contratos, sociedades, defensa del consumidor, ejecuciones. Asesoramos a empresas y emprendedores con soluciones jurídicas prácticas.",
+    icono: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
+  },
+];
+---
+
+<section id="servicios" class="section-padding bg-muted/50">
+  <div class="container-main">
+    <!-- Section header -->
+    <div class="max-w-2xl">
+      <div class="accent-line"></div>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-foreground tracking-tight text-balance">
+        Soluciones legales pensadas para vos
+      </h2>
+      <p class="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
+        Cada caso es único. Por eso ofrecemos un abordaje personalizado en cada
+        área de práctica, combinando experiencia técnica con un trato humano y
+        cercano.
+      </p>
+    </div>
+
+    <!-- Services grid -->
+    <div class="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+      {
+        servicios.map((s) => (
+          <div
+            class="group p-6 md:p-8 rounded-xl bg-white border border-border hover:border-primary/20
+                   hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
+          >
+            <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-primary/5 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={s.icono}/>
+              </svg>
+            </div>
+            <h3 class="mt-5 text-xl font-heading font-semibold text-foreground">
+              {s.titulo}
+            </h3>
+            <p class="mt-2 text-sm md:text-base text-muted-foreground leading-relaxed">
+              {s.descripcion}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,63 @@
+---
+const pilares = [
+  {
+    titulo: "Experiencia comprobable",
+    descripcion:
+      "Más de 15 años de trayectoria y cientos de casos resueltos nos respaldan. Conocemos el sistema y sabemos cómo mover las piezas a tu favor.",
+  },
+  {
+    titulo: "Atención cercana y directa",
+    descripcion:
+      "Trabajás con el profesional a cargo de tu caso, no con intermediarios. Te escuchamos, te explicamos cada paso y resolvemos tus dudas.",
+  },
+  {
+    titulo: "Transparencia total",
+    descripcion:
+      "Honorarios claros desde el primer día. Sin sorpresas, sin letra chica. Creemos que la confianza se construye con honestidad.",
+  },
+  {
+    titulo: "Estrategia a medida",
+    descripcion:
+      "No aplicamos fórmulas genéricas. Cada caso recibe un análisis profundo y una estrategia diseñada específicamente para tus objetivos.",
+  },
+];
+---
+
+<section class="section-padding bg-white">
+  <div class="container-main">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <!-- Left: heading + intro -->
+      <div>
+        <div class="accent-line"></div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-foreground tracking-tight text-balance">
+          Por qué confiar tu caso a ESTJURI
+        </h2>
+        <p class="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
+          Elegir un abogado es una decisión importante. Sabemos que estás
+          poniendo en juego tu tranquilidad, tu patrimonio o tu familia. Por eso
+          trabajamos con un solo objetivo: que sientas que tomaste la decisión
+          correcta.
+        </p>
+      </div>
+
+      <!-- Right: value props -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {
+          pilares.map((p, i) => (
+            <div class="p-5 rounded-xl bg-muted/70 border border-border/50">
+              <span class="font-heading text-3xl font-bold text-primary/20">
+                {(i + 1).toString().padStart(2, "0")}
+              </span>
+              <h3 class="mt-2 text-base font-heading font-semibold text-foreground">
+                {p.titulo}
+              </h3>
+              <p class="mt-1.5 text-sm text-muted-foreground leading-relaxed">
+                {p.descripcion}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

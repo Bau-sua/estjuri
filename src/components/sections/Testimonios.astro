@@ -1,0 +1,61 @@
+---
+const testimonios = [
+  {
+    cita: "Gracias a ESTJURI pude resolver un conflicto familiar que me angustiaba hacía años. Me explicaron cada paso con claridad y siempre sentí que estaban de mi lado. Los recomiendo sin dudar.",
+    autor: "María G.",
+    caso: "Divorcio y régimen de visitas",
+  },
+  {
+    cita: "Después de un accidente de trabajo, mi ART me dejó sin cobertura. El equipo de ESTJURI llevó mi caso con una determinación increíble y conseguimos la indemnización completa. Profesionales de verdad.",
+    autor: "Carlos R.",
+    caso: "Accidente de trabajo",
+  },
+  {
+    cita: "Necesitábamos asesoramiento para la sucesión de nuestro padre y el proceso fue mucho más simple de lo que esperábamos. Transparencia absoluta en cada etapa. Muy agradecidos.",
+    autor: "Hnos. Fernández",
+    caso: "Sucesión",
+  },
+  {
+    cita: "Contraté a ESTJURI para revisar los contratos de mi empresa y quedé impresionado con el nivel de detalle. Me evitaron problemas que ni siquiera había considerado. Ahora son mis abogados de confianza.",
+    autor: "Martín L.",
+    caso: "Derecho comercial",
+  },
+];
+---
+
+<section id="testimonios" class="section-padding bg-muted/50">
+  <div class="container-main">
+    <div class="max-w-2xl">
+      <div class="accent-line"></div>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-foreground tracking-tight text-balance">
+        Lo que dicen nuestros clientes
+      </h2>
+      <p class="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
+        La mejor prueba de nuestro trabajo son los resultados y la confianza de
+        quienes ya pasaron por acá.
+      </p>
+    </div>
+
+    <div class="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+      {
+        testimonios.map((t) => (
+          <blockquote class="p-6 md:p-8 rounded-xl bg-white border border-border relative">
+            <!-- Quote icon -->
+            <svg class="w-8 h-8 text-accent/20 mb-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+            </svg>
+            <p class="text-sm md:text-base text-foreground/80 leading-relaxed italic">
+              &ldquo;{t.cita}&rdquo;
+            </p>
+            <footer class="mt-6 pt-4 border-t border-border/60">
+              <cite class="not-italic">
+                <span class="block text-sm font-semibold text-foreground">{t.autor}</span>
+                <span class="block text-xs text-muted-foreground mt-0.5">{t.caso}</span>
+              </cite>
+            </footer>
+          </blockquote>
+        ))
+      }
+    </div>
+  </div>
+</section>

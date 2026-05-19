@@ -1,0 +1,100 @@
+---
+const preguntas = [
+  {
+    pregunta: "¿Cuánto cuesta una consulta inicial?",
+    respuesta:
+      "La primera consulta tiene un costo accesible y variable según la complejidad del caso. Durante esa reunión evaluamos tu situación y te damos un presupuesto claro y detallado de los honorarios, sin compromiso.",
+  },
+  {
+    pregunta: "¿Qué documentación debo llevar a la consulta?",
+    respuesta:
+      "Depende del tipo de caso. En general, traé toda la documentación relacionada con tu situación: contratos, notificaciones, telegramas, sentencias previas, DNI. Si tenés dudas, te orientamos antes de la reunión.",
+  },
+  {
+    pregunta: "¿Cuánto tiempo puede durar mi caso?",
+    respuesta:
+      "Los plazos varían según la materia y la complejidad. Un divorcio de común acuerdo puede resolverse en semanas, mientras que un juicio laboral puede extenderse varios meses. En la consulta inicial te damos una estimación realista.",
+  },
+  {
+    pregunta: "¿Puedo iniciar un divorcio sin el consentimiento de la otra parte?",
+    respuesta:
+      "Sí. En Argentina rige el divorcio incausado por presentación unilateral. No necesitás el consentimiento ni la firma de la otra persona para iniciar el trámite.",
+  },
+  {
+    pregunta: "¿Trabajan con casos en toda la provincia?",
+    respuesta:
+      "Sí. Si bien nuestro estudio está en CABA, tomamos casos en todo el territorio de la Provincia de Buenos Aires y en el ámbito federal según corresponda.",
+  },
+  {
+    pregunta: "¿Cómo manejan la confidencialidad?",
+    respuesta:
+      "El secreto profesional es un pilar de nuestro ejercicio. Toda la información que compartas con nosotros está protegida por ley y por nuestro compromiso ético. Nunca compartimos datos sin tu consentimiento expreso.",
+  },
+];
+---
+
+<section id="faq" class="section-padding bg-white">
+  <div class="container-main">
+    <div class="max-w-3xl mx-auto">
+      <div class="accent-line"></div>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-foreground tracking-tight text-balance">
+        Preguntas frecuentes
+      </h2>
+      <p class="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
+        Respuestas directas a las dudas más comunes. Si no encontrás lo que
+        buscás, escribinos.
+      </p>
+
+      <dl class="mt-12 space-y-0">
+        {
+          preguntas.map((item, i) => (
+            <div class="border-b border-border last:border-b-0">
+              <dt>
+                <button
+                  class="flex w-full items-center justify-between py-5 text-left text-base md:text-lg font-medium text-foreground hover:text-primary transition-colors"
+                  data-accordion-trigger
+                  aria-expanded={i === 0 ? "true" : "false"}
+                >
+                  {item.pregunta}
+                  <svg
+                    class="ml-4 w-5 h-5 shrink-0 text-muted-foreground transition-transform duration-200"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    data-accordion-icon
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </button>
+              </dt>
+              <dd
+                class="pb-5 pr-12 text-sm md:text-base text-muted-foreground leading-relaxed"
+                data-accordion-content
+                style={i === 0 ? "" : "display: none;"}
+              >
+                {item.respuesta}
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  function initAccordion() {
+    document.querySelectorAll("[data-accordion-trigger]").forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const dd = trigger.parentElement?.nextElementSibling;
+        const icon = trigger.querySelector("[data-accordion-icon]");
+        const isOpen = trigger.getAttribute("aria-expanded") === "true";
+
+        trigger.setAttribute("aria-expanded", String(!isOpen));
+        if (dd) dd.style.display = isOpen ? "none" : "block";
+        icon?.classList.toggle("rotate-180", !isOpen);
+      });
+    });
+  }
+  initAccordion();
+</script>
