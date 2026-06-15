@@ -4,18 +4,20 @@ Template de landing page estática para estudios jurídicos y despachos de aboga
 
 ![Stack](https://img.shields.io/badge/astro-v6.3-FF5D01?logo=astro) ![Tailwind](https://img.shields.io/badge/tailwind-v4.3-06B6D4?logo=tailwindcss) ![TypeScript](https://img.shields.io/badge/typescript-strict-3178C6?logo=typescript) ![Lighthouse](https://img.shields.io/badge/lighthouse-100%2F100-4CAF50)
 
+> **Status: COMPLETED** ✅ — June 2026
+
 ## 🎯 Secciones incluidas
 
-| Sección | Descripción |
-|---|---|
-| **Hero** | Propuesta de valor, estadísticas, CTAs principales |
-| **Servicios** | 4 áreas de práctica con íconos y resumen |
-| **Por qué elegirnos** | 4 pilares diferenciales del estudio |
-| **Cómo trabajamos** | 3 pasos del proceso legal |
-| **Equipo** | Perfiles profesionales con foto y matrícula |
-| **Testimonios** | Citas de clientes con tipo de caso |
-| **FAQ** | Preguntas frecuentes con accordion interactivo |
-| **Contacto** | Formulario + teléfono, dirección, email, horarios |
+| Sección               | Descripción                                        |
+| --------------------- | -------------------------------------------------- |
+| **Hero**              | Propuesta de valor, estadísticas, CTAs principales |
+| **Servicios**         | 4 áreas de práctica con íconos y resumen           |
+| **Por qué elegirnos** | 4 pilares diferenciales del estudio                |
+| **Cómo trabajamos**   | 3 pasos del proceso legal                          |
+| **Equipo**            | Perfiles profesionales con foto y matrícula        |
+| **Testimonios**       | Citas de clientes con tipo de caso                 |
+| **FAQ**               | Preguntas frecuentes con accordion interactivo     |
+| **Contacto**          | Formulario + teléfono, dirección, email, horarios  |
 
 ## 🚀 Stack
 
@@ -47,14 +49,14 @@ Abrí `http://localhost:4321` para ver la landing en vivo.
 
 Todos los textos, nombres, teléfonos y direcciones están como placeholders en los componentes dentro de `src/components/sections/`. Editá cada archivo para reflejar tu estudio:
 
-| Archivo | Qué cambiar |
-|---|---|
-| `Hero.astro` | Stats, propuesta de valor, CTAs |
-| `Servicios.astro` | Áreas de práctica, íconos, descripciones |
-| `Equipo.astro` | Nombres, cargos, especialidades, matrículas, fotos |
-| `Testimonios.astro` | Citas, nombres de clientes, tipos de caso |
-| `FAQ.astro` | Preguntas y respuestas |
-| `Footer.astro` + `Contacto.astro` | Dirección, teléfono, email, horarios |
+| Archivo                           | Qué cambiar                                        |
+| --------------------------------- | -------------------------------------------------- |
+| `Hero.astro`                      | Stats, propuesta de valor, CTAs                    |
+| `Servicios.astro`                 | Áreas de práctica, íconos, descripciones           |
+| `Equipo.astro`                    | Nombres, cargos, especialidades, matrículas, fotos |
+| `Testimonios.astro`               | Citas, nombres de clientes, tipos de caso          |
+| `FAQ.astro`                       | Preguntas y respuestas                             |
+| `Footer.astro` + `Contacto.astro` | Dirección, teléfono, email, horarios               |
 
 ### Colores y fuentes
 
@@ -62,8 +64,8 @@ El tema se define en `src/styles/global.css` con la directiva `@theme` de Tailwi
 
 ```css
 @theme {
-  --color-primary: #1e3a5f;      /* Azul profundo */
-  --color-accent: #c9a84c;       /* Dorado sobrio */
+  --color-primary: #1e3a5f; /* Azul profundo */
+  --color-accent: #c9a84c; /* Dorado sobrio */
   --font-heading: "Playfair Display", Georgia, serif;
   --font-body: "Inter", system-ui, sans-serif;
 }
